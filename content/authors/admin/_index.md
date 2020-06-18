@@ -1,6 +1,6 @@
 ---
 # Display name
-title: Nelson Bighetti
+title: John Harper
 
 # Username (this should match the folder name)
 authors:
@@ -10,11 +10,11 @@ authors:
 superuser: true
 
 # Role/position
-role: Professor of Artificial Intelligence
+role: Software Developer
 
 # Organizations/Affiliations
 organizations:
-- name: Stanford University
+- name: ""
   url: ""
 
 # Short bio (displayed in user profile at end of posts)
@@ -27,15 +27,13 @@ interests:
 
 education:
   courses:
-  - course: PhD in Artificial Intelligence
-    institution: Stanford University
-    year: 2012
-  - course: MEng in Artificial Intelligence
-    institution: Massachusetts Institute of Technology
-    year: 2009
-  - course: BSc in Artificial Intelligence
-    institution: Massachusetts Institute of Technology
-    year: 2008
+  - course: MS Electrical and Computer Engineering
+    institution: University of Illinois at Urbana-Champaign
+    year: 1995
+  - course: BS Electrical Engineering
+    institution: University of Illinois at Urbana-Champaign
+    year: 1993
+
 
 # Social/Academic Networking
 # For available icons, see: https://sourcethemes.com/academic/docs/page-builder/#icons
@@ -44,7 +42,7 @@ education:
 social:
 - icon: envelope
   icon_pack: fas
-  link: '#contact'  # For a direct email link, use "mailto:test@example.org".
+  link: 'mailto:john@harper.link'
 - icon: twitter
   icon_pack: fab
   link: https://twitter.com/GeorgeCushen
