@@ -37,7 +37,7 @@ to highlight items of interest.  Foreground (text) color
 is chosen automatically for visibility against the backgound color.
 
 
-## Overvew
+## Overview
 
 When displaying data you can give the viewer cues to help them
 identify outliers, trends, and max or min values.  This could be via
