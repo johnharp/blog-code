@@ -108,8 +108,7 @@ And, three functions:
 
     This function is similar to applyColors() but rather than
     computing each index it assumes the data value is an
-    index to use from the colors array.  (This will be clearer
-    from the example below.)
+    index to use from the colors array.
 
 ## Usage
 
