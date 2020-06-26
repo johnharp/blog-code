@@ -87,7 +87,7 @@ The module exposes two classes, Rgb, and Segment.
     of colors in the gradient (including the start and end
     color).
 
-And, two functions:
+And, three functions:
 
 * ramp()
 
