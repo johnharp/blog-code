@@ -29,11 +29,11 @@ projects: []
 ---
 
 DRY (Don't Repeat Yourself) is a useful mantra on the way to 
-maintainable, readable code, and ASP.NET MVC (with Razor view-engine)
+maintainable, readable code. ASP.NET MVC (with Razor view-engine)
 gives you multiple ways to remove unnecessary redundancy in your views.
 
 
-## @helper Methods
+## Approach 1: @helper Methods
 
 The @helper method syntax gives you the ability to package up a small bit of
 markup and embeded C# server-side code in a reusable function that can be
@@ -113,7 +113,7 @@ Which simplifies our buttons down to this:
     @ActionButton("Button 3", "Description of third button", "buttonex-3", "mdi-hexagon-slice-4", "Action3")
 {{< /highlight >}}
 
-## @helper Methods -- Shared in App_Code
+## Approach 2: @helper Methods -- Shared in App_Code
 
 Helper methods don't only have to live in a single view page.
 If you have a snippet that should be shared 
@@ -128,4 +128,49 @@ App_Code.
 
 Move our ActionButton helper to the MyHelpers.cshtml page.
 
+---
+##### Note
 
+One minor down-side of placing a @helper method in App_Code is that the UrlHelper and HtmlHelper classes  are not available.  You can overcome this in a couple of ways, but the simplest is to just pass in the Url helper from the caller. 
+
+---
+
+##### App_Code/MyHelpers.cs
+{{< highlight html "linenos=table" >}}
+@using System.Web.Mvc
+
+@helper ActionButton(
+    string title, string description,
+    string buttonCssClass, string iconCssClass,
+    string action,
+    UrlHelper Url) // Notice that UrlHelper is passed from the caller
+{
+    <a href='@Url.Action(action)'
+       class="buttonex @buttonCssClass">
+        <div class="text-left">
+            <i class="mdi @iconCssClass"></i>
+            <b>@title</b>
+            <p class="mb-0">@description</p>
+        </div>
+    </a>
+}
+{{< /highlight >}}
+
+Which gives us this slightly modified usage in the view.
+
+##### HelpersInAppCode.cshtml
+{{< highlight html "linenos=table,linenostart=15" >}}
+@MyHelpers.ActionButton("Button 1", "Description of first button",
+    "buttonex-1", "mdi-comment-text", "Action1", Url)
+@MyHelpers.ActionButton("Button 2", "Description of second button",
+    "buttonex-2", "mdi-email-plus-outline", "Action2", Url)
+@MyHelpers.ActionButton("Button 3", "Description of third button",
+    "buttonex-3", "mdi-hexagon-slice-4", "Action3", Url)
+{{< /highlight >}}
+
+You can find more information about ASP.NET helper syntax here:
+[Creating and Using a Helper in an ASP.NET Web Pages (Razor) Site](https://docs.microsoft.com/en-us/aspnet/web-pages/overview/ui-layouts-and-themes/creating-and-using-a-helper-in-an-aspnet-web-pages-site)
+
+## Approach 3: Partial Views
+
+## Approach 4: View Templates

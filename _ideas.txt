@@ -1,0 +1,7 @@
+
+* LinqPad
+* Linq "let" clause
+* RichFields
+* Crafty.js
+  - For non-game usage
+  - Atari 2600 Asteroids clone
