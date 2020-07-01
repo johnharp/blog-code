@@ -10,7 +10,7 @@ authors:
 superuser: true
 
 # Role/position
-role: Software Developer
+role: 
 
 # Organizations/Affiliations
 organizations:
@@ -18,21 +18,21 @@ organizations:
   url: ""
 
 # Short bio (displayed in user profile at end of posts)
-bio: ....
+bio: 
 
-interests:
-- ...
-- ...
-- ...
+# interests:
+# - ...
+# - ...
+# - ...
 
-education:
-  courses:
-  - course: MS Electrical and Computer Engineering
-    institution: University of Illinois at Urbana-Champaign
-    year: 1995
-  - course: BS Electrical Engineering
-    institution: University of Illinois at Urbana-Champaign
-    year: 1993
+# education:
+#   courses:
+#   - course: MS Electrical and Computer Engineering
+#     institution: University of Illinois at Urbana-Champaign
+#     year: 1995
+#   - course: BS Electrical Engineering
+#     institution: University of Illinois at Urbana-Champaign
+#     year: 1993
 
 
 # Social/Academic Networking
@@ -59,7 +59,7 @@ social:
 #   link: files/cv.pdf
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
-email: ""
+email: "john@harper.link"
 
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.
@@ -68,6 +68,11 @@ user_groups:
 - Visitors
 ---
 
-...
+I am a software developer who creates solutions for a 
+small agriculture consulting business in Illinois.
 
-...
+I love to build new things and have been creating since
+I was young.  (I use a lot less scotch tape now.)
+
+
+

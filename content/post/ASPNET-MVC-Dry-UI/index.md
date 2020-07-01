@@ -2,7 +2,7 @@
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
 title: "ASP.NET MVC Dry UI"
-subtitle: ""
+subtitle: "Reducing redundancy in ASP.NET MVC Views -- There's more than one way to do it."
 summary: ""
 authors: []
 tags: ["ASP.NET MVC", "Razor"]
@@ -28,7 +28,7 @@ image:
 projects: []
 ---
 
-DRY (Don't Repeat Yourself) is a useful mantra on the way to 
+DRY (Don't Repeat Yourself) is a useful mantra when developing 
 maintainable, readable code. ASP.NET MVC (with Razor view-engine)
 gives you multiple ways to remove unnecessary redundancy in your views.
 
@@ -173,4 +173,70 @@ You can find more information about ASP.NET helper syntax here:
 
 ## Approach 3: Partial Views
 
+Partial views are .cshtml pages that are not used on their own, but
+are instead included as part of another page.  One great use is for
+breaking apart a complicated or large page in to more managable
+units -- rendering the Menu Bar, Side Bar, and Footer as separate
+components, for example.
+
+Partial views can live either under a specific View's directory,
+when used to decompose a complicated view in to smaller units, or
+under the Views/Shared directory, when used in multiple views.  Partial views are
+named with a leading underscore to differentiate them.
+
+![Using Partial Views Figure.](PartialViewsFigure1.png "Partial Views")
+
+As a simple example, consider a reusable partial view that renders
+messages.
+
+![Example of Message Partial View.](MessageExample.png "Example of _Message Partial View")
+
+Create a view model to contain information about the message to
+be displayed, and store it under the Models directory.
+
+![Create MessageViewModel.](MessageViewModel.png "MessageViewModel.cs")
+
+##### Models/MessageViewModel.cs
+{{< highlight cs "linenos=table,linenostart=3" >}}
+public class MessageViewModel
+{
+    public string Title { get; set; }
+    public string Message { get; set; }
+    public string CssClass { get; set; }
+}
+{{< /highlight >}}
+
+Create the partial view under Views/Shared so it can be re-used across pages.
+
+![Create Message.cshtml partial view.](PartialViewsMessagePage.png "_Message.cshtml")
+
+##### Views/Shared/\_Message.cshtml
+{{< highlight cs "linenos=table" >}}
+@model ASPNETMVC_ex.Models.MessageViewModel
+<div class="card mb-3">
+    <div class="card-header @Model.CssClass">
+        <b>@Model.Title</b>
+    </div>
+    <div class="card-body p-3">
+        @Model.Message
+    </div>
+</div>
+{{< /highlight >}}
+
+The \_Message partial view can then be used to render messages.
+`
+{{< highlight html >}}
+@Html.Partial("_Message", new MessageViewModel
+{
+    Title = "Warning",
+    Message = "The supplied machine ID is not valid.  Please check " +
+        "the value and re-submit.",
+    CssClass = "bg-danger text-light"
+})
+{{< /highlight >}}
+`
+
+
 ## Approach 4: View Templates
+
+![Template Folders.](DisplayEditorTemplatesFolder.png "Template Folders")
