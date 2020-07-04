@@ -35,7 +35,12 @@ gives you multiple ways to remove unnecessary redundancy in your views.
 
 ## Approach 1: @helper Methods
 
-The @helper method syntax gives you the ability to package up a small bit of
+Although the @helper method syntax has been around a while and 
+some of the other approaches below are more prevalent, @helper
+methods are still supported and may be a good solution for small
+bits of reusable view code.
+
+The @helper method syntax gives you the ability to package up a section of
 markup and embeded C# server-side code in a reusable function that can be
 called from the view.  When embedded in the view page itself it also has
 access to any of the page's variables (including the Model).
@@ -237,6 +242,6 @@ The \_Message partial view can then be used to render messages.
 `
 
 
-## Approach 4: View Templates
+## Approach 4: Display and Editor Templates
 
 ![Template Folders.](DisplayEditorTemplatesFolder.png "Template Folders")
