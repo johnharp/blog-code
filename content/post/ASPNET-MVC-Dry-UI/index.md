@@ -45,7 +45,7 @@ markup and embeded C# server-side code in a reusable function that can be
 called from the view.  When embedded in the view page itself it also has
 access to any of the page's variables (including the Model).
 
-Consider a view that contains four buttons, each of which has:
+Consider a view that contains three buttons, each of which has:
 * A title
 * Some explanatory text
 * An icon
@@ -189,6 +189,10 @@ when used to decompose a complicated view in to smaller units, or
 under the Views/Shared directory, when used in multiple views.  Partial views are
 named with a leading underscore to differentiate them.
 
+One common use for partial views is to extract the common, repeated portions
+of a site (such as the main menu, sidebar, and footer) and refer to them in all pages.
+The main \_Layout page is also a partial view.
+
 ![Using Partial Views Figure.](PartialViewsFigure1.png "Partial Views")
 
 As a simple example, consider a reusable partial view that renders
@@ -243,5 +247,12 @@ The \_Message partial view can then be used to render messages.
 
 
 ## Approach 4: Display and Editor Templates
+
+Display and editor templates are similar to partial views with a couple of
+differences.
+
+* By convention they live under Views/Shared in DisplayTemplates and
+  EditorTemplates directories
+* Rather than using Html.Partial, they are included us 
 
 ![Template Folders.](DisplayEditorTemplatesFolder.png "Template Folders")
