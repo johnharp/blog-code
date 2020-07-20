@@ -234,7 +234,7 @@ Create the partial view under Views/Shared so it can be re-used across pages.
 
 The \_Message partial view can then be used to render messages.
 `
-{{< highlight html >}}
+{{< highlight cs >}}
 @Html.Partial("_Message", new MessageViewModel
 {
     Title = "Warning",
@@ -253,6 +253,44 @@ differences.
 
 * By convention they live under Views/Shared in DisplayTemplates and
   EditorTemplates directories
-* Rather than using Html.Partial, they are included us 
+* Rather than using Html.Partial(), they are included using Html.DisplayFor() and
+  Html.EditorFor()
+* They support model binding
 
 ![Template Folders.](DisplayEditorTemplatesFolder.png "Template Folders")
+
+For example, consider an editor template used to edit percentages.
+We'd like it to bind to integer values from the model, and use
+Bootstrap 4 css classes for styling.
+
+![Percent Editor Template.](PercentEditorTemplate.png "A Percent Editor Template")
+
+We can declare the editor template in the shared editor templates directory.
+
+##### Views/Shared/EditorTemplates/Percent.cshtml
+{{< highlight html "linenos=table" >}}
+@model int
+
+<div class="input-group" style="width: 100px; min-width: 0;">
+    <input class="form-control text-right"
+           type="number" value="@Model" />
+    <div class="input-group-append">
+      <div class="input-group-text">%</div>
+    </div>
+</div>
+{{< /highlight >}}
+
+To use the template we'd call EditorFor with and bind to the model
+attribute containing the int value.
+
+{{< highlight cs>}}
+@Html.EditorFor(m => m.BatteryChargeLevel, "Percent", null)
+{{< /highlight >}}
+
+## Conclusion
+Because ASP.NET MVC and the Razor view engine gives you so many choices
+it is sometimes hard to choose the right way to re-use UI code.  Hopefully
+the above examples will help you choose the best fit for each situation
+you encounter. 
+
+
