@@ -1,7 +1,7 @@
 ---
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
-title: "LINQ \"let\" Clause"
+title: "Using the LINQ \"let\" Clause"
 subtitle: ""
 summary: ""
 authors: [admin]
@@ -124,3 +124,5 @@ LINQ expression that is then data-shaped and stored in a View Model.
 A second LINQ expression could select from the first and use the computed
 Importance.  In many cases, however, the let clause allows you to avoid
 redundancy without composing the query in multiple statements.
+
+[let clause (C# Reference)](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/let-clause)
